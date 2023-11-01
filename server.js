@@ -11,9 +11,11 @@ import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
 const PORT = process.env.PORT || 3500;
 
 // routes
-import userRoutes from "./routes/UserRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 
 app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
