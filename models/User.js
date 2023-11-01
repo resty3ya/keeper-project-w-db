@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { ROLE } from "../utils/constant.js";
+import { ROLES } from "../utils/constant.js";
 
 const UserSchema = new mongoose.Schema({
   email: String,
@@ -14,8 +14,8 @@ const UserSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: Object.values(ROLE),
-    default: ROLE.USER,
+    enum: Object.values(ROLES),
+    default: ROLES.USER,
   },
 });
 

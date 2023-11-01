@@ -5,5 +5,15 @@ import {
   getCurrentUser,
   updateUser,
   deleteUser,
-  createUser,
-} from "../controllers/userController";
+} from "../controllers/userController.js";
+
+router.get("/currentUser", getCurrentUser);
+router.patch("/updateUser", updateUser);
+
+// get all users with admin access
+router.get("/admin/allUsers", getAllUsers);
+
+// delete user with admin access
+router.route("/admin/:id").delete(deleteUser);
+
+export default router;

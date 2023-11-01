@@ -10,9 +10,10 @@ import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
 
 const PORT = process.env.PORT || 3500;
 
-//middleware
-app.use(express.json());
-app.use(errorHandlerMiddleware);
+// routes
+import userRoutes from "./routes/UserRoutes.js";
+
+app.use("/api/users", userRoutes);
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
@@ -23,6 +24,10 @@ app.use("*", (req, res) => {
 });
 
 app.get("/", (req, res) => res.send("Hello World"));
+
+// middleware
+app.use(express.json());
+app.use(errorHandlerMiddleware);
 
 try {
   await mongoose.connect(process.env.MONGO_URL);

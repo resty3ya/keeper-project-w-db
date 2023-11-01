@@ -11,11 +11,6 @@ export const getCurrentUser = async (req, res) => {
   res.send("get current user");
 };
 
-// CREATE USER
-export const createUser = async (req, res) => {
-  res.send("user created");
-};
-
 // UPDATE USER
 export const updateUser = async (req, res) => {
   res.send("user update");
