@@ -13,9 +13,11 @@ const PORT = process.env.PORT || 3500;
 // routes
 import userRoutes from "./routes/userRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import noteRoutes from "./routes/noteRoutes.js";
 
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/notes", noteRoutes);
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
