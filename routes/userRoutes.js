@@ -14,6 +14,6 @@ router.patch("/updateUser", updateUser);
 router.get("/admin/allUsers", getAllUsers);
 
 // delete user with admin access
-router.route("/admin/:id").delete(deleteUser);
+router.delete("/admin/:id").delete(deleteUser);
 
 export default router;

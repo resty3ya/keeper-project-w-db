@@ -3,25 +3,43 @@ import Note from "../models/Note.js";
 
 // Get all notes
 export const getAllNotes = async (req, res) => {
-  res.send("get all notes");
+  const { title, details, noteStatus, createdBy } = req.query;
+
+  const notes = await Note.find(req.query);
+
+  res.status(StatusCodes.OK).json({ notes });
 };
 
 // Create Note
 export const createNote = async (req, res) => {
-  res.send("note created");
+  const { title, details } = req.body;
+
+  const note = await Note.create({ title, details });
+
+  res.status(StatusCodes.CREATED).json({ message: "notes created", note });
 };
 
 // Update Note
 export const updateNote = async (req, res) => {
-  res.send("note updated");
+  const updatedNote = await Note.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+  });
+
+  res
+    .status(StatusCodes.OK)
+    .json({ message: "note modified", note: updatedNote });
 };
 
 // Get Note
 export const getNote = async (req, res) => {
-  res.send("get note");
+  const note = await Note.findById(req.params.id);
+
+  res.status(StatusCodes.OK).json({ note });
 };
 
 // Delete Note
 export const deleteNote = async (req, res) => {
-  res.send("note deleted");
+  const removedNote = await Note.findByIdAndDelete(req.params.id);
+
+  res.status(StatusCodes.OK).json({ message: "note deleted" });
 };
