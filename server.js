@@ -5,8 +5,11 @@ import express from "express";
 const app = express();
 import morgan from "morgan";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
 
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
+// ITO ANG NAG POPROTECT NOT TO ACCESS BY ALL PERSONS ANG LAHAT NG NOTES
+import { authenticateUser } from "./middleware/authMiddleware.js";
 
 const PORT = process.env.PORT || 3500;
 
@@ -19,10 +22,12 @@ import noteRoutes from "./routes/noteRoutes.js";
 // express.json should always on the top of the routes
 // so that all the value from the data models will be read
 app.use(express.json());
+// this populates req.cookies with an object keyed by the cookie names and also it allows us to access the cookie
+app.use(cookieParser());
 
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
-app.use("/api/notes", noteRoutes);
+app.use("/api/notes", authenticateUser, noteRoutes);
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));

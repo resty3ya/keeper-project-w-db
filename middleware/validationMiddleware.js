@@ -4,12 +4,11 @@ import {
   NotFoundError,
   UnAuthenticatedError,
   UnAuthorizedError,
-} from "../errors/customErrors";
-import { NOTE_STATUS, ROLES } from "../utils/constant";
+} from "../errors/customErrors.js";
+import { NOTE_STATUS, ROLES } from "../utils/constant.js";
 import Note from "../models/Note.js";
 import mongoose from "mongoose";
 import User from "../models/User.js";
-import { useAllNotesContext } from "../../notes-project/client/src/pages/Note/AllNotes";
 
 const validationMiddleware = (validateValues) => {
   return [
@@ -91,7 +90,7 @@ export const validateLoginUser = validationMiddleware([
     .withMessage("email is require")
     .isEmail()
     .withMessage("invalid email format"),
-  bod("password").notEmpty().withMessage("password is required"),
+  body("password").notEmpty().withMessage("password is required"),
 ]);
 
 // VALIDATE USER UPDATE INPUT

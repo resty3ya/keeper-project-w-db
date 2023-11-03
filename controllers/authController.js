@@ -33,9 +33,27 @@ export const login = async (req, res) => {
   }
 
   // this is the token for validity of login
-  res.status(StatusCodes.OK).json({ msg: "login user" });
+
+  // dito nagstart ang userId na nsa update user din
+  const token = createJWT({ userId: user._id, role: user.role });
+
+  console.log({ token });
+
+  const oneDay = 1000 * 60 * 60 * 24;
+  // THIS IS HOW YOU SETUP COOKIE
+  res.cookie("cookie", token, {
+    httpOnly: true,
+    expires: new Date(Date.now() + oneDay),
+    secure: process.env.NODE_ENV === "production",
+  });
+
+  res.status(StatusCodes.OK).json({ msg: "login user", user });
 };
 
 export const logout = async (req, res) => {
-  res.send("logout user");
+  res.cookie("cookie", "logout", {
+    httpOnly: true,
+    expires: new Date(Date.now()),
+  });
+  res.status(StatusCodes.OK).json({ msg: "user logged out" });
 };
