@@ -1,5 +1,20 @@
 import { StatusCodes } from "http-status-codes";
 import User from "../models/User.js";
+import Note from "../models/Note.js";
+
+// GET USER
+export const getCurrentUser = async (req, res) => {
+  // IF YOU WANT TO GET THE USER WITHOUT THE ID ON THE URL
+
+  console.log({ req });
+
+  const user = await User.findOne({ _id: req.user.userId });
+
+  console.log(user);
+  // const userWithoutPassword = user.toJSON();
+
+  res.status(StatusCodes.OK).json({ user });
+};
 
 // GET ALL USERS
 // FOR ADMIN USERS
@@ -9,17 +24,6 @@ export const getAllUsers = async (req, res) => {
   const user = await User.find(req.query);
 
   res.status(StatusCodes.OK).json({ user });
-};
-
-// GET USER
-export const getCurrentUser = async (req, res) => {
-  // IF YOU WANT TO GET THE USER WITHOUT THE ID ON THE URL
-  const user = await User.findOne({ _id: req.user.userId });
-
-  console.log({ user });
-  const userWithoutPassword = user.toJSON();
-
-  res.status(StatusCodes.OK).json({ user: userWithoutPassword });
 };
 
 // UPDATE USER

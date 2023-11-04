@@ -25,13 +25,13 @@ app.use(express.json());
 // this populates req.cookies with an object keyed by the cookie names and also it allows us to access the cookie
 app.use(cookieParser());
 
-app.use("/api/users", userRoutes);
-app.use("/api/auth", authRoutes);
-app.use("/api/notes", authenticateUser, noteRoutes);
-
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
+
+app.use("/api/users", authenticateUser, userRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/notes", authenticateUser, noteRoutes);
 
 app.use("*", (req, res) => {
   res.status(404).json({ msg: "not found" });

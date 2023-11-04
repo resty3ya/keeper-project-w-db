@@ -33,11 +33,10 @@ export const login = async (req, res) => {
   }
 
   // this is the token for validity of login
-
   // dito nagstart ang userId na nsa update user din
   const token = createJWT({ userId: user._id, role: user.role });
 
-  console.log({ token });
+  console.log("DAPAT PAPASOK TO SA USER", { token });
 
   const oneDay = 1000 * 60 * 60 * 24;
   // THIS IS HOW YOU SETUP COOKIE
