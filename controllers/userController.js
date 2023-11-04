@@ -2,20 +2,6 @@ import { StatusCodes } from "http-status-codes";
 import User from "../models/User.js";
 import Note from "../models/Note.js";
 
-// GET USER
-export const getCurrentUser = async (req, res) => {
-  // IF YOU WANT TO GET THE USER WITHOUT THE ID ON THE URL
-
-  console.log({ req });
-
-  const user = await User.findOne({ _id: req.user.userId });
-
-  console.log(user);
-  // const userWithoutPassword = user.toJSON();
-
-  res.status(StatusCodes.OK).json({ user });
-};
-
 // GET ALL USERS
 // FOR ADMIN USERS
 export const getAllUsers = async (req, res) => {
@@ -26,9 +12,21 @@ export const getAllUsers = async (req, res) => {
   res.status(StatusCodes.OK).json({ user });
 };
 
+// GET USER
+export const getCurrentUser = async (req, res) => {
+  // IF YOU WANT TO GET THE USER WITHOUT THE ID ON THE URL
+  const user = await User.findOne({ _id: req.user.userId });
+  const userWithoutPassword = user.toJSON();
+
+  res.status(StatusCodes.OK).json({ user: userWithoutPassword });
+};
+
 // UPDATE USER
 export const updateUser = async (req, res) => {
-  const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body);
+  const newUser = { ...req.body };
+  const updatedUser = await User.findByIdAndUpdate(req.user.userId, newUser);
+
+  // console.log("THIS IS UPDATED USER", { newUser });
 
   res.status(StatusCodes.OK).json({ message: "user modified", updatedUser });
 };

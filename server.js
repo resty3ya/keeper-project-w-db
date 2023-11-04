@@ -25,10 +25,6 @@ app.use(express.json());
 // this populates req.cookies with an object keyed by the cookie names and also it allows us to access the cookie
 app.use(cookieParser());
 
-if (process.env.NODE_ENV === "development") {
-  app.use(morgan("dev"));
-}
-
 app.use("/api/users", authenticateUser, userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/notes", authenticateUser, noteRoutes);
