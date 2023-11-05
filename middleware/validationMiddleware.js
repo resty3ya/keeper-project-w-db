@@ -107,5 +107,6 @@ export const validateUpdateUserInput = validationMiddleware([
         throw new BadRequestError("email already exists");
       }
     }),
+  // body('password').notEmpty().withMessage('must be a valid password'),
   body("lastName").notEmpty().withMessage("lastname is required"),
 ]);

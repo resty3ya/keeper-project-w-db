@@ -24,16 +24,20 @@ export const getCurrentUser = async (req, res) => {
 
 // UPDATE USER
 export const updateUser = async (req, res) => {
-  const hashedPassword = await hashPassword(req.body.password);
-  req.body.password = hashedPassword;
+  try {
+    const hashedPassword = await hashPassword(req.body.password);
+    req.body.password = hashedPassword;
 
-  const newUser = { ...req.body, hashedPassword };
+    const newUser = { ...req.body, hashedPassword };
 
-  const updatedUser = await User.findByIdAndUpdate(req.user.userId, newUser);
+    const updatedUser = await User.findByIdAndUpdate(req.user.userId, newUser);
+
+    res.status(StatusCodes.OK).json({ message: "user modified", updatedUser });
+  } catch (error) {
+    console.log(error);
+  }
 
   // console.log("THIS IS UPDATED USER", { newUser });
-
-  res.status(StatusCodes.OK).json({ message: "user modified", updatedUser });
 };
 
 // DELETE USER
