@@ -11,6 +11,7 @@ import {
   getNote,
   deleteNote,
 } from "../controllers/noteController.js";
+import { authorizePermission } from "../middleware/authMiddleware.js";
 
 router.route("/").get(getAllNotes).post(validateNoteInput, createNote);
 

@@ -19,15 +19,15 @@ import authRoutes from "./routes/authRoutes.js";
 import noteRoutes from "./routes/noteRoutes.js";
 
 // middleware
+// this populates req.cookies with an object keyed by the cookie names and also it allows us to access the cookie
+app.use(cookieParser());
 // express.json should always on the top of the routes
 // so that all the value from the data models will be read
 app.use(express.json());
-// this populates req.cookies with an object keyed by the cookie names and also it allows us to access the cookie
-app.use(cookieParser());
 
 app.use("/api/users", authenticateUser, userRoutes);
-app.use("/api/auth", authRoutes);
 app.use("/api/notes", authenticateUser, noteRoutes);
+app.use("/api/auth", authRoutes);
 
 app.use("*", (req, res) => {
   res.status(404).json({ msg: "not found" });

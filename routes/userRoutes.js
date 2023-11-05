@@ -6,14 +6,16 @@ import {
   updateUser,
   deleteUser,
 } from "../controllers/userController.js";
+import { validateUpdateUserInput } from "../middleware/validationMiddleware.js";
+import { authorizePermission } from "../middleware/authMiddleware.js";
 
 router.get("/currentUser", getCurrentUser);
-router.patch("/updateUser", updateUser);
+router.patch("/updateUser", validateUpdateUserInput, updateUser);
 
 // get all users with admin access
-router.get("/admin/allUsers", getAllUsers);
+router.get("/admin/allUsers", authorizePermission("admin"), getAllUsers);
 
 // delete user with admin access
-router.delete("/admin/:id").delete(deleteUser);
+router.delete("/admin/:id", authorizePermission("admin"), deleteUser);
 
 export default router;

@@ -3,20 +3,24 @@ import Note from "../models/Note.js";
 
 // Get all notes
 export const getAllNotes = async (req, res) => {
-  const { title, details, noteStatus, createdBy } = req.query;
+  console.log(req.user);
 
-  console.log(req);
+  // const { title, details, noteStatus, createdBy } = req.query;
 
-  const notes = await Note.find(req.query);
+  // const queryObject = {
+  //   createdBy: req.user.userId,
+  // };
+
+  const notes = await Note.find({ createdBy: req.user.userId });
 
   res.status(StatusCodes.OK).json({ notes });
 };
 
 // Create Note
 export const createNote = async (req, res) => {
-  const { title, details } = req.body;
+  req.body.createdBy = req.user.userId;
 
-  const note = await Note.create({ title, details });
+  const note = await Note.create(req.body);
 
   res.status(StatusCodes.CREATED).json({ message: "notes created", note });
 };
