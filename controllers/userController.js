@@ -25,13 +25,19 @@ export const getCurrentUser = async (req, res) => {
 // UPDATE USER
 export const updateUser = async (req, res) => {
   try {
-    const hashedPassword = await hashPassword(req.body.password);
+    const prevPassword = req.body.password;
+
+    const hashedPassword =
+      req.body.password === ""
+        ? prevPassword
+        : await hashPassword(req.body.password);
     req.body.password = hashedPassword;
 
     const newUser = { ...req.body, hashedPassword };
 
     const updatedUser = await User.findByIdAndUpdate(req.user.userId, newUser);
 
+    console.log("ITO AFTER NA MAG CHANGE PASS", { newUser });
     res.status(StatusCodes.OK).json({ message: "user modified", updatedUser });
   } catch (error) {
     console.log(error);

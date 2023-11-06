@@ -107,6 +107,13 @@ export const validateUpdateUserInput = validationMiddleware([
         throw new BadRequestError("email already exists");
       }
     }),
-  // body('password').notEmpty().withMessage('must be a valid password'),
+  // validate password
+  body("password").custom(async (password, { req }) => {
+    const currentPassword = await User.findOne({ password });
+
+    const getPrevPassword = currentPassword === null && req.body.password;
+    console.log({ req });
+    return getPrevPassword;
+  }),
   body("lastName").notEmpty().withMessage("lastname is required"),
 ]);
