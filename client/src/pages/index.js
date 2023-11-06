@@ -1,0 +1,12 @@
+import { default as Landing } from "./Landing";
+import { default as Login } from "./Login";
+import { default as Register } from "./Register";
+export { default as DashboardLayout } from "./DashboardLayout";
+export { default as HomeLayout } from "./HomeLayout";
+export { default as Profile } from "./Profile";
+export { default as Error } from "./Error";
+export { default as AddNote } from "./AddNote";
+export { default as EditNote } from "./EditNote";
+export { default as DeleteNote } from "./DeleteNote";
+export { default as AllNotes } from "./AllNotes";
+export { default as Admin } from "./Admin";

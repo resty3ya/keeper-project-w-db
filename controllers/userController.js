@@ -22,28 +22,19 @@ export const getCurrentUser = async (req, res) => {
   res.status(StatusCodes.OK).json({ user: userWithoutPassword });
 };
 
-// UPDATE USER
+// UPDATE USER PHASE 2 IS THE PASSWORD UPDATE
 export const updateUser = async (req, res) => {
-  try {
-    const prevPassword = req.body.password;
+  // const hashedPassword = await hashPassword(req.body.password);
+  // req.body.password = hashedPassword;
 
-    const hashedPassword =
-      req.body.password === ""
-        ? prevPassword
-        : await hashPassword(req.body.password);
-    req.body.password = hashedPassword;
+  const newUser = { ...req.body };
+  delete newUser.password;
 
-    const newUser = { ...req.body, hashedPassword };
+  const updatedUser = await User.findByIdAndUpdate(req.user.userId, newUser);
 
-    const updatedUser = await User.findByIdAndUpdate(req.user.userId, newUser);
+  res.status(StatusCodes.OK).json({ message: "user modified", updatedUser });
 
-    console.log("ITO AFTER NA MAG CHANGE PASS", { newUser });
-    res.status(StatusCodes.OK).json({ message: "user modified", updatedUser });
-  } catch (error) {
-    console.log(error);
-  }
-
-  // console.log("THIS IS UPDATED USER", { newUser });
+  // c
 };
 
 // DELETE USER
