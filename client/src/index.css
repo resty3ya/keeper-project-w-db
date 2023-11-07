@@ -43,7 +43,7 @@ html {
   --red-dark: #842029;
   --green-light: #d1e7dd;
   --green-dark: #0f5132;
-
+  --yellow: #f5ba13;
   --small-text: 0.875rem;
   --extra-small-text: 0.7em;
   /* rest of the vars */
@@ -176,7 +176,7 @@ ul {
 .btn {
   cursor: pointer;
   color: var(--white);
-  background: var(--primary-500);
+  background: var(--primary-600);
   border: transparent;
   border-radius: var(--border-radius);
   letter-spacing: var(--letter-spacing);
