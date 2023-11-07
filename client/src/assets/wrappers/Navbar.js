@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Wrapper = styled.section`
+const Wrapper = styled.nav`
   nav {
     background: var(--yellow);
     font-family: "McLaren", cursive;

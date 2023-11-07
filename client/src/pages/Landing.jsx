@@ -1,15 +1,13 @@
-import Wrapper from "../assets/wrappers/RegisterAndLoginPage";
 import Login from "./Login";
+import { Navbar } from "../components";
 // import Register from "./";
 
 const Landing = () => {
   return (
-    <Wrapper>
-      <nav>
-        <h1>Keeper</h1>
-      </nav>
+    <>
+      <Navbar />
       <Login />
-    </Wrapper>
+    </>
   );
 };
 export default Landing;

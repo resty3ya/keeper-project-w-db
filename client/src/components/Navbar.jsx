@@ -1,4 +1,12 @@
+import Wrapper from "../assets/wrappers/Navbar";
+
 const Navbar = () => {
-  return <div>Keeper</div>;
+  return (
+    <Wrapper>
+      <nav>
+        <h1>Keeper</h1>
+      </nav>
+    </Wrapper>
+  );
 };
 export default Navbar;
