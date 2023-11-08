@@ -1,4 +1,10 @@
+import NoteContainer from "../components/NoteContainer";
+
 const AllNotes = () => {
-  return <div>AllNotes</div>;
+  return (
+    <>
+      <NoteContainer />
+    </>
+  );
 };
 export default AllNotes;

@@ -19,6 +19,9 @@ const AddNote = () => {
           className="form-center-textarea"
           rows="3"
         />
+        <button type="submit" className="form-btn">
+          Add
+        </button>
       </Form>
     </Wrapper>
   );
