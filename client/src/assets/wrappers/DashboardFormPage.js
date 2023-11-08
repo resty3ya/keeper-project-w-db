@@ -17,13 +17,13 @@ const Wrapper = styled.section`
     max-width: 100%;
     width: 100%; */
     }
-    background: "#fff",
-    borderRadius:"7px",
-    boxShadow: "0 2px 5px #ccc",
-    float: "left",
-    padding: "10px",
-    width: "240px",
-    margin: "16px",
+    position: relative;
+    width: 480px;
+    margin: 30px auto 20px auto;
+    background: #fff;
+    padding: 15px;
+    border-radius: 7px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
   }
   .form-row {
     margin-bottom: 0;
@@ -32,6 +32,31 @@ const Wrapper = styled.section`
     display: grid;
     row-gap: 1rem;
   }
+
+  .form-center-input {
+    width: 100%;
+    border: none;
+    padding: 4px;
+    outline: none;
+    font-size: 1.2em;
+    font-family: inherit;
+    resize: none;
+  }
+
+  .form-center-textarea {
+    width: 100%;
+    border: medium;
+    padding: 4px;
+    outline: none;
+    font-size: 1.2em;
+    font-family: inherit;
+    resize: none;
+    height: 100px;
+    vertical-align: top;
+    line-height: 1.2;
+    padding-bottom: 60px;
+  }
+
   .form-btn {
     align-self: end;
     margin-top: 1rem;

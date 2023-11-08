@@ -10,13 +10,14 @@ const AddNote = () => {
           type="text"
           name="title"
           placeholder="Title"
-          className="form-input"
+          className="form-center-input"
         />
         <input
           type="textarea"
           name="details"
           placeholder="Take a note..."
-          className="form-input"
+          className="form-center-textarea"
+          rows="3"
         />
       </Form>
     </Wrapper>
