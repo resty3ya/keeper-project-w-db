@@ -1,11 +1,18 @@
 import Wrapper from "../assets/wrappers/Navbar";
+import { useLocation } from "react-router-dom";
+import LogoutContainer from "./LogoutContainer";
 
 const Navbar = () => {
+  const location = useLocation();
+
+  const profileButton = location.pathname.includes("dashboard");
+
   return (
     <Wrapper>
-      <nav>
-        <h1>Keeper</h1>
-      </nav>
+      <h1>Keeper</h1>
+
+      {/* WILL CREATE A COMPONENT HERE FOR PROFILE AND LOGOUT */}
+      {profileButton && <LogoutContainer />}
     </Wrapper>
   );
 };
