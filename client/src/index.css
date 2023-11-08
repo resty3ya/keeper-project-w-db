@@ -262,6 +262,15 @@ button:disabled {
 .form-btn {
   height: 35px;
 }
+
+.form-btn-note {
+  height: 35px;
+  margin-top: 0.5rem;
+  opacity: 90%;
+  outline: none;
+  background: #ffff;
+  border-color: #ffff;
+}
 .form-row {
   margin-bottom: 1rem;
 }

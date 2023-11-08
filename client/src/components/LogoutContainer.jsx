@@ -19,6 +19,14 @@ const LogoutContainer = () => {
           Resty
           <FaCaretDown />
         </button>
+        <div className={showLogout ? "dropdown show-dropdown" : "dropdown"}>
+          <button type="button" className="dropdown-btn">
+            Profile
+          </button>
+          <button type="button" className="dropdown-btn">
+            logout
+          </button>
+        </div>
       </div>
     </Wrapper>
   );
