@@ -11,8 +11,6 @@ export const authenticateUser = (req, res, next) => {
   try {
     const { userId, role } = verifyJWT(cookie);
     req.user = { userId, role };
-
-    console.log("THIS IS FROM AUTH MIDDLEWARE", req.user);
     next();
   } catch (error) {
     throw new UnAuthenticatedError("authentication invalid");

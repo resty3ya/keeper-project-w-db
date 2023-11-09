@@ -1,6 +1,5 @@
 import Wrapper from "../assets/wrappers/DashboardFormPage";
 import { Form } from "react-router-dom";
-import { FormRow } from "../components";
 
 const AddNote = () => {
   return (

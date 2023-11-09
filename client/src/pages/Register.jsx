@@ -4,6 +4,20 @@ import customFetch from "../utils/customFetch";
 import { FormRow, SubmitBtn } from "../components";
 import { toast } from "react-toastify";
 
+export const action = async ({ request }) => {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  console.log(data);
+  try {
+    await customFetch.post("/auth/register", data);
+    toast.success("Registration Successful!");
+    return redirect("/");
+  } catch (error) {
+    toast.error(error?.response?.data?.msg);
+    return error;
+  }
+};
+
 const Register = () => {
   return (
     <Wrapper>
