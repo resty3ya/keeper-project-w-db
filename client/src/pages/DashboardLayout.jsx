@@ -1,32 +1,39 @@
-import { redirect, useLoaderData } from "react-router-dom";
-import { createContext, useContext } from "react";
-import customFetch from "../utils/customFetch";
-import { toast } from "react-toastify";
+// import { redirect, useLoaderData } from "react-router-dom";
+// import { createContext, useContext } from "react";
+// import customFetch from "../utils/customFetch";
+// import { toast } from "react-toastify";
 import AddNote from "./AddNote";
 import AllNotes from "./AllNotes";
 
-export const loader = async () => {
-  try {
-    const { data } = await customFetch.get("/users/currentUser");
-    return { data };
-  } catch (error) {
-    return redirect("/dashboard/");
-  }
-};
+// export const loader = async () => {
+//   try {
+//     const [users, notes] = await Promise.all([
+//       customFetch.get("/users/currentUser"),
+//       customFetch.get("/notes"),
+//     ]);
+//     return { users, notes };
+//   } catch (error) {
+//     return redirect("/");
+//   }
+// };
 
-const DashboardContext = createContext();
+// const DashboardLayoutContext = createContext();
 
 const DashboardLayout = () => {
-  const { data } = useLoaderData();
+  // const { users, notes } = useLoaderData();
 
-  console.log({ data });
+  // console.log("ITO AY SA DASHBOARD", { users, notes });
   return (
-    <DashboardContext.Provider>
+    // <DashboardLayoutContext.Provider value={{ users, notes }}>
+    <>
       <AddNote />
       <AllNotes />
-    </DashboardContext.Provider>
+    </>
+
+    // </DashboardLayoutContext.Provider>
   );
 };
 
-export const useDashboardContext = () => useContext(DashboardContext);
+// export const useDashboardLayoutContext = () =>
+//   useContext(DashboardLayoutContext);
 export default DashboardLayout;

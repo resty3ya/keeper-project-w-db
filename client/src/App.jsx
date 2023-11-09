@@ -16,7 +16,9 @@ import {
 
 import { action as loginAction } from "./pages/Login";
 import { action as registerAction } from "./pages/Register";
-import { loader as dashboardLoader } from "./pages/DashboardLayout";
+// import { loader as dashboardLoader } from "./pages/DashboardLayout";
+import { action as addNoteAction } from "./pages/AddNote";
+import { loader as allNotesLoader } from "./pages/AllNotes";
 
 const router = createBrowserRouter([
   {
@@ -37,15 +39,16 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <DashboardLayout />,
-        loader: dashboardLoader,
         children: [
           {
             index: true,
             element: <AddNote />,
+            action: addNoteAction,
           },
           {
             path: "all-notes",
             element: <AllNotes />,
+            loader: allNotesLoader,
           },
           {
             path: "edit-note/:id",

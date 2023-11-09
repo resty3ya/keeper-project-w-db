@@ -11,7 +11,7 @@ export const getAllNotes = async (req, res) => {
   //   createdBy: req.user.userId,
   // };
 
-  const notes = await Note.find({ createdBy: req.user.userId });
+  const notes = await Note.find({ createdBy: req.user.userId }).populate();
 
   res.status(StatusCodes.OK).json({ notes });
 };
