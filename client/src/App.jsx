@@ -16,9 +16,9 @@ import {
 
 import { action as loginAction } from "./pages/Login";
 import { action as registerAction } from "./pages/Register";
-// import { loader as dashboardLoader } from "./pages/DashboardLayout";
-import { action as addNoteAction } from "./pages/AddNote";
+import { loader as dashboardLayoutLoader } from "./pages/DashboardLayout";
 import { loader as allNotesLoader } from "./pages/AllNotes";
+import { action as addNoteAction } from "./pages/AddNote";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +39,7 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <DashboardLayout />,
+        loader: dashboardLayoutLoader,
         children: [
           {
             index: true,
@@ -46,7 +47,8 @@ const router = createBrowserRouter([
             action: addNoteAction,
           },
           {
-            path: "all-notes",
+            // path: "all-notes", REMOVED IF HINDI NAMAN SYA PAGSESENDAN NG VALUE AND SINCE NAKA IMPORT SYA SA DASHBOARD
+            // PARA PAG NAG ADD NG NOTE PAPASOK SYA SA DASHBOARD AND HINDI SA PATH NG ALL NOTES
             element: <AllNotes />,
             loader: allNotesLoader,
           },
