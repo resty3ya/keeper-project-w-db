@@ -21,9 +21,6 @@ const DashboardLayoutContext = createContext();
 const DashboardLayout = () => {
   const { users, notes } = useLoaderData();
 
-  console.log("ITO AY SA DASHBOARD", { users });
-  console.log("ITO AY SA DASHBOARD", { notes });
-
   return (
     <DashboardLayoutContext.Provider value={{ users, notes }}>
       <Wrapper>
