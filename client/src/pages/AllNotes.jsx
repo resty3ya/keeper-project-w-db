@@ -22,17 +22,11 @@ export const loader = async () => {
 const AllNotes = () => {
   const { users, notes } = useLoaderData();
 
-  console.log({ users, notes });
-
   const { data: notesData } = notes;
   const { data: usersData } = users;
 
   const notesDataForMapping = notesData.notes;
   const usersDataForMapping = usersData.user;
-
-  console.log("ITO AY SA ALL NOTES", notesDataForMapping);
-
-  console.log("ITO AY SA ALL USERS", usersDataForMapping);
 
   const notesDetails =
     notesData === null ? (

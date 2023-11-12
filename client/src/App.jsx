@@ -39,6 +39,8 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <DashboardLayout />,
+        // ITO ANG SAGOT PAG OUTSIDE SA LOADERDATA AT CONTEXT ANG COMPONENT AT NEED MO MA ACCESS ANG DATA "useRouteLoaderData"
+        id: "dashboard",
         loader: dashboardLayoutLoader,
         children: [
           {
