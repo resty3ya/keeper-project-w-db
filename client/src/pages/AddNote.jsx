@@ -19,6 +19,12 @@ export const action = async ({ request }) => {
 };
 
 const AddNote = () => {
+  // const [title, setTitle] = useState();
+
+  // const resetForm = () => {
+  //   setTitle("");
+  // };
+
   // const [inputText, setInputText] = useState({ title: "", details: "" });
 
   // const handleChange = (event) => {
@@ -44,10 +50,10 @@ const AddNote = () => {
         <input
           type="text"
           name="title"
-          // value={inputText.title}
+          // value={title}
           placeholder="Title"
           className="form-center-input"
-          // onChange={handleChange}
+          // onChange={(e) => setTitle(e.target.value)}
         />
         <input
           type="textarea"
@@ -64,7 +70,11 @@ const AddNote = () => {
           hidden
         />
 
-        <button type="submit" className="form-btn">
+        <button
+          type="submit"
+          className="form-btn"
+          onClick={() => window.location.reload()}
+        >
           Add
         </button>
       </Form>

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Wrapper = styled.section`
-  margin-top: 4rem;
   h2 {
     text-transform: none;
   }
@@ -17,6 +16,51 @@ const Wrapper = styled.section`
     width: 240px;
     margin: 16px;
     float: left;
+  }
+
+  .note-button {
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    color: #f5ba13;
+    border: none;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    outline: none;
+    top: 1.5rem;
+  }
+
+  .status {
+    position: relative;
+    float: left;
+    top: 3rem;
+  }
+
+  .author {
+    position: relative;
+    top: 1.5rem;
+    right: 3.5rem;
+  }
+
+  .note-edit-button {
+    position: relative;
+    float: left;
+    left: 7.5rem;
+    margin: 9px;
+    color: #f5ba13;
+    border: none;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    outline: none;
+    top: 1.5rem;
+  }
+
+  ${
+    "" /* .actions {
+    padding-top: 1rem;
+  } */
   }
 
   @media (min-width: 1120px) {

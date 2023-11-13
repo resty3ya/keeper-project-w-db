@@ -330,11 +330,16 @@ button:disabled {
   color: #f59e0b;
 }
 
-.interview {
+.ongoing {
   background: #e0e8f9;
   color: #647acb;
 }
-.declined {
+.stuck {
   background: #ffeeee;
   color: #d66a6a;
+}
+
+.done {
+  background: #ffeeee;
+  color: chartreuse;
 }

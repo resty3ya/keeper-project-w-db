@@ -17,6 +17,9 @@ export const loader = async () => {
   }
 };
 
+// TAKE NOTE: HINDI PEDENG PAGSAMAHIN ANG MAGKAHIWALAY NA MODEL AND RUN MO SA .MAP AT PAGDATING
+// NG FUNCTIONALITY SA NOTES PAGE HINDI GAGANA EXAMPLE ANG DELETE BUTTON
+
 const AllNotes = () => {
   const { notes } = useLoaderData();
   // destructure

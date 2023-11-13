@@ -6,19 +6,18 @@ const Notes = ({ _id, title, details, noteStatus, createdBy }) => {
     <Wrapper>
       <div className="notes">
         <h3>{title}</h3>
+        <br />
         <p>{details}</p>
-        <p>{noteStatus}</p>
-        <p>{createdBy.name}</p>
+        <p className={`status ${noteStatus}`}>{noteStatus}</p>
+        <p className="author">{createdBy.name}</p>
         <footer className="actions">
-          <Link to={`/dashboard/edit-job/${_id}`} className="btn edit-btn">
-            Edit
+          <Link to={`/dashboard/edit-job/${_id}`} className="note-edit-button">
+            EDIT
           </Link>
-          <Form
-            method="post"
-            action={`/dashboard/delete-note/${_id}`}
-            className="btn delete-btn"
-          >
-            <button type="submit">DELETE</button>
+          <Form method="post" action={`/dashboard/delete-note/${_id}`}>
+            <button type="submit" className="note-button">
+              DELETE
+            </button>
           </Form>
         </footer>
       </div>

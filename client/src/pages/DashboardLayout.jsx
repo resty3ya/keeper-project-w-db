@@ -24,7 +24,7 @@ const DashboardLayout = () => {
   return (
     <DashboardLayoutContext.Provider value={{ users, notes }}>
       <Wrapper>
-        <Outlet context={{ users, notes }} />
+        <Outlet />
         <AllNotes />
       </Wrapper>
     </DashboardLayoutContext.Provider>
