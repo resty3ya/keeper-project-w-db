@@ -1,3 +1,18 @@
+import customFetch from "../utils/customFetch";
+import { toast } from "react-toastify";
+import { redirect } from "react-router-dom";
+
+export const action = async ({ params }) => {
+  try {
+    await customFetch.delete(`/notes/${params.id}`);
+    toast.success("notes successfully deleted");
+    console.log({ params });
+  } catch (error) {
+    toast.error(error?.response?.data?.msg);
+  }
+  return redirect("/dashboard/");
+};
+
 const DeleteNote = () => {
   return <div>DeleteNote</div>;
 };

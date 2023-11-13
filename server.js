@@ -25,6 +25,10 @@ app.use(cookieParser());
 // so that all the value from the data models will be read
 app.use(express.json());
 
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
+
 app.use("/api/users", authenticateUser, userRoutes);
 app.use("/api/notes", authenticateUser, noteRoutes);
 app.use("/api/auth", authRoutes);

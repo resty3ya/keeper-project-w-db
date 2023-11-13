@@ -10,8 +10,10 @@ export const getAllNotes = async (req, res) => {
   // const queryObject = {
   //   createdBy: req.user.userId,
   // };
-
-  const notes = await Note.find({ createdBy: req.user.userId }).populate();
+  // POPULATE IS BASED ON THE VARIABLE USED NA CONNECTED ANG REF
+  const notes = await Note.find({ createdBy: req.user.userId }).populate(
+    "createdBy"
+  );
 
   res.status(StatusCodes.OK).json({ notes });
 };
@@ -47,5 +49,7 @@ export const getNote = async (req, res) => {
 export const deleteNote = async (req, res) => {
   const removedNote = await Note.findByIdAndDelete(req.params.id);
 
-  res.status(StatusCodes.OK).json({ message: "note deleted" });
+  res
+    .status(StatusCodes.OK)
+    .json({ message: "note deleted", note: removedNote });
 };

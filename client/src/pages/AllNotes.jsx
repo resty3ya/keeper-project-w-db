@@ -8,11 +8,9 @@ import { Notes } from "../components/";
 
 export const loader = async () => {
   try {
-    const [users, notes] = await Promise.all([
-      customFetch.get("/notes"),
-      customFetch.get("/users/currentUser"),
-    ]);
-    return { users, notes };
+    const { data } = await customFetch.get("/notes");
+    console.log({ data });
+    return { data };
   } catch (error) {
     toast.error(error?.response?.data?.msg);
     return error;
@@ -20,13 +18,10 @@ export const loader = async () => {
 };
 
 const AllNotes = () => {
-  const { users, notes } = useLoaderData();
-
-  const { data: notesData } = notes;
-  const { data: usersData } = users;
-
-  const notesDataForMapping = notesData.notes;
-  const usersDataForMapping = usersData.user;
+  const { notes } = useLoaderData();
+  // destructure
+  const { data } = notes;
+  const { notes: notesData } = data;
 
   const notesDetails =
     notesData === null ? (
@@ -36,8 +31,8 @@ const AllNotes = () => {
     ) : (
       <Wrapper>
         <div className="">
-          {notesDataForMapping.map((note) => {
-            return <Notes key={note._id} {...note} {...usersDataForMapping} />;
+          {notesData.map((note) => {
+            return <Notes key={note._id} {...note} />;
           })}
         </div>
       </Wrapper>

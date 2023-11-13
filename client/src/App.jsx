@@ -19,6 +19,7 @@ import { action as registerAction } from "./pages/Register";
 import { loader as dashboardLayoutLoader } from "./pages/DashboardLayout";
 import { loader as allNotesLoader } from "./pages/AllNotes";
 import { action as addNoteAction } from "./pages/AddNote";
+import { action as deleteNoteAction } from "./pages/DeleteNote";
 
 const router = createBrowserRouter([
   {
@@ -49,18 +50,19 @@ const router = createBrowserRouter([
             action: addNoteAction,
           },
           {
-            // path: "all-notes", REMOVED IF HINDI NAMAN SYA PAGSESENDAN NG VALUE AND SINCE NAKA IMPORT SYA SA DASHBOARD
-            // PARA PAG NAG ADD NG NOTE PAPASOK SYA SA DASHBOARD AND HINDI SA PATH NG ALL NOTES
-            element: <AllNotes />,
-            loader: allNotesLoader,
-          },
-          {
             path: "edit-note/:id",
             element: <EditNote />,
           },
           {
             path: "delete-note/:id",
             element: <DeleteNote />,
+            action: deleteNoteAction,
+          },
+          {
+            // path: "all-notes", REMOVED IF HINDI NAMAN SYA PAGSESENDAN NG VALUE AND SINCE NAKA IMPORT SYA SA DASHBOARD
+            // PARA PAG NAG ADD NG NOTE PAPASOK SYA SA DASHBOARD AND HINDI SA PATH NG ALL NOTES
+            element: <AllNotes />,
+            loader: allNotesLoader,
           },
           {
             path: "profile",
