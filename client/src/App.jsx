@@ -7,7 +7,7 @@ import {
   Login,
   Profile,
   Error,
-  AddNote,
+  // AddNote,
   EditNote,
   DeleteNote,
   AllNotes,
@@ -45,10 +45,18 @@ const router = createBrowserRouter([
         loader: dashboardLayoutLoader,
         children: [
           {
+            // path: "all-notes", REMOVED IF HINDI NAMAN SYA PAGSESENDAN NG VALUE AND SINCE NAKA IMPORT SYA SA DASHBOARD
+            // PARA PAG NAG ADD NG NOTE PAPASOK SYA SA DASHBOARD AND HINDI SA PATH NG ALL NOTES
             index: true,
-            element: <AddNote />,
+            element: <AllNotes />,
+            loader: allNotesLoader,
             action: addNoteAction,
           },
+          // WALA NA ITO SINCE NILAGAY KO NA SYA SA ALL NOTES PAGE AND YUNG ADD NOTE ACTION DUN NA DIN ILALAGAY
+          // {
+          //   path: "add-note",
+          //   element: <AddNote />,
+          // },
           {
             path: "edit-note/:id",
             element: <EditNote />,
@@ -57,12 +65,6 @@ const router = createBrowserRouter([
             path: "delete-note/:id",
             element: <DeleteNote />,
             action: deleteNoteAction,
-          },
-          {
-            // path: "all-notes", REMOVED IF HINDI NAMAN SYA PAGSESENDAN NG VALUE AND SINCE NAKA IMPORT SYA SA DASHBOARD
-            // PARA PAG NAG ADD NG NOTE PAPASOK SYA SA DASHBOARD AND HINDI SA PATH NG ALL NOTES
-            element: <AllNotes />,
-            loader: allNotesLoader,
           },
           {
             path: "profile",

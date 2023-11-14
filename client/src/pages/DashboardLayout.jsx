@@ -25,7 +25,6 @@ const DashboardLayout = () => {
     <DashboardLayoutContext.Provider value={{ users, notes }}>
       <Wrapper>
         <Outlet />
-        <AllNotes />
       </Wrapper>
     </DashboardLayoutContext.Provider>
   );

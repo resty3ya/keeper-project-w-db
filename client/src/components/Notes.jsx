@@ -11,7 +11,7 @@ const Notes = ({ _id, title, details, noteStatus, createdBy }) => {
         <p className={`status ${noteStatus}`}>{noteStatus}</p>
         <p className="author">{createdBy.name}</p>
         <footer className="actions">
-          <Link to={`/dashboard/edit-job/${_id}`} className="note-edit-button">
+          <Link to={`/dashboard/edit-note/${_id}`} className="note-edit-button">
             EDIT
           </Link>
           <Form method="post" action={`/dashboard/delete-note/${_id}`}>
