@@ -57,7 +57,7 @@ export const validateIdParam = validationMiddleware([
     const isAdmin = req.user.role === "admin";
     const isOwner = req.user.userId === note.createdBy.toString();
 
-    if (!isAdmin && isOwner) {
+    if (!isAdmin && !isOwner) {
       throw new UnAuthorizedError("not authorized to access this route");
     }
   }),

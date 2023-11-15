@@ -20,6 +20,8 @@ import { loader as dashboardLayoutLoader } from "./pages/DashboardLayout";
 import { loader as allNotesLoader } from "./pages/AllNotes";
 import { action as addNoteAction } from "./pages/AddNote";
 import { action as deleteNoteAction } from "./pages/DeleteNote";
+import { action as editNoteAction } from "./pages/EditNote";
+import { loader as editNoteLoader } from "./pages/EditNote";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +62,8 @@ const router = createBrowserRouter([
           {
             path: "edit-note/:id",
             element: <EditNote />,
+            loader: editNoteLoader,
+            action: editNoteAction,
           },
           {
             path: "delete-note/:id",
