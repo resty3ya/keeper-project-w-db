@@ -325,21 +325,21 @@ button:disabled {
 }
 
 /* BUTTONS AND BADGES */
-.pending {
+.PENDING {
   background: #fef3c7;
   color: #f59e0b;
 }
 
-.ongoing {
+.ONGOING {
   background: #e0e8f9;
   color: #647acb;
 }
-.stuck {
+.STUCK {
   background: #ffeeee;
   color: #d66a6a;
 }
 
-.done {
+.DONE {
   background: #ffeeee;
   color: chartreuse;
 }

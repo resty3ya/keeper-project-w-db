@@ -1,11 +1,11 @@
 export const NOTE_STATUS = {
-  DONE: "done",
-  ONGOING: "ongoing",
-  PENDING: "pending",
-  STUCK: "stuck",
+  DONE: "DONE",
+  ONGOING: "ONGOING",
+  PENDING: "PENDING",
+  STUCK: "STUCK",
 };
 
 export const ROLES = {
-  ADMIN: "admin",
-  USER: "user",
+  ADMIN: "ADMIN",
+  USER: "USER",
 };
