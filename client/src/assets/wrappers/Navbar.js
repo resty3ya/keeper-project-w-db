@@ -2,10 +2,15 @@ import styled from "styled-components";
 
 const Wrapper = styled.nav`
   background: var(--yellow);
-  font-family: "McLaren", cursive;
-  font-weight: 400;
+
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+
+  .logo {
+    font-family: "McLaren", cursive;
+    font-weight: 400;
+  }
+
   nav {
     font-family: "McLaren", cursive;
     font-weight: 400;

@@ -1,7 +1,7 @@
 import { FaCaretDown } from "react-icons/fa";
 import Wrapper from "../assets/wrappers/LogoutContainer";
 import { useState } from "react";
-import { useNavigate, useRouteLoaderData } from "react-router-dom";
+import { useNavigate, useRouteLoaderData, Link } from "react-router-dom";
 import customFetch from "../utils/customFetch";
 
 import { toast } from "react-toastify";
@@ -34,9 +34,9 @@ const LogoutContainer = () => {
           <FaCaretDown />
         </button>
         <div className={showLogout ? "dropdown show-dropdown" : "dropdown"}>
-          <button type="button" className="dropdown-btn">
+          <Link to={`../dashboard/profile`} className="dropdown-btn">
             Profile
-          </button>
+          </Link>
           <button type="button" className="dropdown-btn" onClick={logoutUser}>
             logout
           </button>

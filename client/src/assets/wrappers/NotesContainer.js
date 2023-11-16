@@ -34,7 +34,7 @@ const Wrapper = styled.section`
   .status {
     position: relative;
     float: left;
-    top: 3rem;
+    top: 2rem;
   }
 
   .author {
@@ -46,15 +46,16 @@ const Wrapper = styled.section`
   .note-edit-button {
     position: relative;
     float: left;
-    left: 7.5rem;
+    left: 5rem;
     margin: 9px;
-    color: #f5ba13;
-    border: none;
+    color: rgb(245, 186, 19);
+    border: medium;
     width: 36px;
     height: 36px;
     cursor: pointer;
     outline: none;
-    top: 1.5rem;
+    top: 1.6rem;
+    font-size: 0.9rem;
   }
 
   ${

@@ -8,9 +8,9 @@ const Notes = ({ _id, title, details, noteStatus, createdBy }) => {
         <h3>{title}</h3>
         <br />
         <p>{details}</p>
-        <p className={`status ${noteStatus}`}>{noteStatus}</p>
-        <p className="author">{createdBy.name}</p>
+
         <footer className="actions">
+          <p className={`status ${noteStatus}`}>{noteStatus}</p>
           <Link to={`/dashboard/edit-note/${_id}`} className="note-edit-button">
             EDIT
           </Link>

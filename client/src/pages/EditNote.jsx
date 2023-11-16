@@ -53,7 +53,11 @@ const EditNote = () => {
           defaultValue={note.details}
           className="form-center-input"
         />
-        <FormRowSelect name="noteStatus" list={Object.values(NOTE_STATUS)} />
+        <FormRowSelect
+          name="noteStatus"
+          list={Object.values(NOTE_STATUS)}
+          className="form-center-input"
+        />
         <button type="submit" className="form-btn">
           Submit
         </button>

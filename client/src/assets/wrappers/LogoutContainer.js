@@ -26,6 +26,7 @@ const Wrapper = styled.div`
     visibility: hidden;
     border-radius: var(--border-radius);
     background: var(--primary-500);
+    font-size: 0.9rem;
   }
   .show-dropdown {
     visibility: visible;

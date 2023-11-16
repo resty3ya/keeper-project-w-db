@@ -9,7 +9,7 @@ const Navbar = () => {
 
   return (
     <Wrapper>
-      <h1>Keeper</h1>
+      <h1 className="logo">Keeper</h1>
 
       {/* WILL CREATE A COMPONENT HERE FOR PROFILE AND LOGOUT */}
       {profileButton && <LogoutContainer />}
