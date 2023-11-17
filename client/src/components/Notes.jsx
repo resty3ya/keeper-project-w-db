@@ -6,8 +6,8 @@ const Notes = ({ _id, title, details, noteStatus, createdBy }) => {
     <Wrapper>
       <div className="notes">
         <h3>{title}</h3>
-        <br />
-        <p>{details}</p>
+
+        <h5>{details}</h5>
 
         <footer className="actions">
           <p className={`status ${noteStatus}`}>{noteStatus}</p>

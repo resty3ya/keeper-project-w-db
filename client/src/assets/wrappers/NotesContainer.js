@@ -13,7 +13,7 @@ const Wrapper = styled.section`
     border-radius: 7px;
     box-shadow: 0 2px 5px #ccc;
     padding: 10px;
-    width: 240px;
+    width: 20%;
     margin: 16px;
     float: left;
   }
