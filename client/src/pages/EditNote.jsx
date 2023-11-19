@@ -51,7 +51,7 @@ const EditNote = () => {
           name="details"
           placeholder="Take a note..."
           defaultValue={note.details}
-          className="form-center-input"
+          className="form-center-input form-textarea"
         />
         <FormRowSelect
           name="noteStatus"

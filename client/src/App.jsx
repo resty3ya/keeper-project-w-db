@@ -22,6 +22,7 @@ import { action as addNoteAction } from "./pages/AddNote";
 import { action as deleteNoteAction } from "./pages/DeleteNote";
 import { action as editNoteAction } from "./pages/EditNote";
 import { loader as editNoteLoader } from "./pages/EditNote";
+import { action as profileAction } from "./pages/Profile";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,7 @@ const router = createBrowserRouter([
           {
             path: "profile",
             element: <Profile />,
+            action: profileAction,
           },
           {
             path: "admin",
