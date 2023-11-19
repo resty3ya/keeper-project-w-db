@@ -25,8 +25,6 @@ const Profile = () => {
   const { data } = users;
   const { email, lastName, name, role } = data.user;
 
-  console.log(email);
-
   return (
     <Wrapper>
       <Form method="post" className="form">
