@@ -6,12 +6,12 @@ const Notes = ({ _id, title, details, noteStatus }) => {
     <Wrapper>
       <div className="notes">
         <div className="title">
-          <h2>{title}</h2>
+          <h3>{title}</h3>
         </div>
         <div className="details">
           <h5>{details}</h5>
         </div>
-        <footer className="actions">
+        <div className="footer">
           <p className={`status ${noteStatus}`}>{noteStatus}</p>
           <Link to={`/dashboard/edit-note/${_id}`} className="note-edit-button">
             EDIT
@@ -21,7 +21,7 @@ const Notes = ({ _id, title, details, noteStatus }) => {
               DELETE
             </button>
           </Form>
-        </footer>
+        </div>
       </div>
     </Wrapper>
   );

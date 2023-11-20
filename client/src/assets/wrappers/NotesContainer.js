@@ -30,6 +30,10 @@ const Wrapper = styled.section`
     width: 95%;
   }
 
+  .footer {
+    position: relative;
+  }
+
   .note-button {
     position: relative;
     float: right;
