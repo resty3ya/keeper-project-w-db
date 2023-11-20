@@ -5,8 +5,12 @@ const Notes = ({ _id, title, details, noteStatus }) => {
   return (
     <Wrapper>
       <div className="notes">
-        <h3>{title}</h3>
-        <p>{details}</p>
+        <div className="title">
+          <h2>{title}</h2>
+        </div>
+        <div className="details">
+          <h5>{details}</h5>
+        </div>
         <footer className="actions">
           <p className={`status ${noteStatus}`}>{noteStatus}</p>
           <Link to={`/dashboard/edit-note/${_id}`} className="note-edit-button">

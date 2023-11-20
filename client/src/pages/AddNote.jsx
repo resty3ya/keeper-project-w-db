@@ -75,6 +75,7 @@ const AddNote = () => {
           // value={inputText.details}
           placeholder="Take a note..."
           className="form-center-textarea"
+          // maxLength="20"
           // onChange={handleChange}
         />
         <input

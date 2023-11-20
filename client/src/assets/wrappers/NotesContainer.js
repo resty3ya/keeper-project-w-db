@@ -16,6 +16,18 @@ const Wrapper = styled.section`
     width: 20%;
     margin: 16px;
     float: left;
+    width: 22%;
+    height: 15rem;
+  }
+
+  .title {
+    height: 5rem;
+  }
+
+  .details {
+    margin: 1rem;
+    height: 3rem;
+    width: 95%;
   }
 
   .note-button {
@@ -55,7 +67,6 @@ const Wrapper = styled.section`
     cursor: pointer;
     outline: none;
     top: 1.6rem;
-    font-size: 0.9rem;
   }
 
   ${

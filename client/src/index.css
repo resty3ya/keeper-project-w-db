@@ -3,7 +3,7 @@
 *,
 ::after,
 ::before {
-  margin: 0;
+  margin: auto 0;
   padding: 0;
   box-sizing: border-box;
 }
@@ -307,9 +307,9 @@ button:disabled {
 
 /* title */
 
-.title {
+/* .title {
   text-align: center;
-}
+} */
 
 .title-underline {
   background: var(--primary-500);
