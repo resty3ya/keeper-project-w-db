@@ -6,9 +6,7 @@ const Notes = ({ _id, title, details, noteStatus }) => {
     <Wrapper>
       <div className="notes">
         <h3>{title}</h3>
-
-        <h5>{details}</h5>
-
+        <p>{details}</p>
         <footer className="actions">
           <p className={`status ${noteStatus}`}>{noteStatus}</p>
           <Link to={`/dashboard/edit-note/${_id}`} className="note-edit-button">

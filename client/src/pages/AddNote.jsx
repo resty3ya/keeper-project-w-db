@@ -1,5 +1,5 @@
 import Wrapper from "../assets/wrappers/DashboardFormPage";
-import { Form, redirect } from "react-router-dom";
+import { Form, redirect, useSubmit } from "react-router-dom";
 import customFetch from "../utils/customFetch";
 import { toast } from "react-toastify";
 import { NOTE_STATUS } from "../../../utils/constant";
@@ -19,7 +19,9 @@ export const action = async ({ request }) => {
 };
 
 const AddNote = () => {
-  // const [title, setTitle] = useState();
+  const submit = useSubmit();
+  // const [title, setTitle] = useState("");
+  // const [details, setDetails] = useState("");
 
   // const resetForm = () => {
   //   setTitle("");
@@ -28,10 +30,12 @@ const AddNote = () => {
   // const [inputText, setInputText] = useState({ title: "", details: "" });
 
   // const handleChange = (event) => {
-  //   // const { name, value } = event.target;
-  //   // setInputText((prevValue) => {
-  //   //   return { ...prevValue, [name]: value };
-  //   // });
+  //   const { name, value } = event.target;
+  //   setInputText((prevValue) => {
+  //     console.log({ name }, { value });
+  //     return { ...prevValue, [name]: value };
+  //   });
+  // };
 
   //   setInputText(event.target.value);
   // };
@@ -44,24 +48,33 @@ const AddNote = () => {
   //   event.preventDefault();
   // };
 
+  // ITO ANG SAGOT SA PAG REFRESH NG FORM FIELD GAMIT NG useSubmit hook then create submit variable
+  // THEN CREATE HANDLE SUBMIT at MAGLAGAY NG onCLICK={handleSubmit}
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    submit(e.currentTarget.form);
+    e.currentTarget.form.reset();
+  };
+
   return (
     <Wrapper>
       <Form method="post" className="form">
         <input
           type="text"
           name="title"
-          // value={title}
+          // defaultValue={title}
+          // value={inputText.title}
           placeholder="Title"
           className="form-center-input"
-          // onChange={(e) => setTitle(e.target.value)}
+          // onChange={handleChange}
         />
         <input
           type="textarea"
           name="details"
+          // defaultValue={details}
           // value={inputText.details}
           placeholder="Take a note..."
           className="form-center-textarea"
-          maxLength="20"
           // onChange={handleChange}
         />
         <input
@@ -71,11 +84,7 @@ const AddNote = () => {
           hidden
         />
 
-        <button
-          type="submit"
-          className="form-btn"
-          onClick={() => window.location.reload()}
-        >
+        <button type="submit" className="form-btn" onClick={handleSubmit}>
           Add
         </button>
       </Form>
