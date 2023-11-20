@@ -1,7 +1,7 @@
 import Wrapper from "../assets/wrappers/NotesContainer";
 import { Link, Form } from "react-router-dom";
 
-const Notes = ({ _id, title, details, noteStatus, createdBy }) => {
+const Notes = ({ _id, title, details, noteStatus }) => {
   return (
     <Wrapper>
       <div className="notes">

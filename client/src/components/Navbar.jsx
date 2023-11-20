@@ -1,5 +1,5 @@
 import Wrapper from "../assets/wrappers/Navbar";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import LogoutContainer from "./LogoutContainer";
 
 const Navbar = () => {
@@ -9,7 +9,9 @@ const Navbar = () => {
 
   return (
     <Wrapper>
-      <h1 className="logo">Keeper</h1>
+      <h1 className="logo">
+        <Link to={"/dashboard"}>Keeper</Link>
+      </h1>
 
       {/* WILL CREATE A COMPONENT HERE FOR PROFILE AND LOGOUT */}
       {profileButton && <LogoutContainer />}
