@@ -106,7 +106,7 @@ const Profile = () => {
               <div className="mt-1 sm:mt-0 sm:col-span-2">
                 <FormRowSelect
                   name="role"
-                  defaultValue={ROLES.role}
+                  defaultValue={role}
                   list={Object.values(ROLES)}
                 />
               </div>
