@@ -34,9 +34,15 @@ const LogoutContainer = () => {
           <FaCaretDown />
         </button>
         <div className={showLogout ? "dropdown show-dropdown" : "dropdown"}>
-          <Link to={`../dashboard/profile`} className="dropdown-btn">
-            Profile
-          </Link>
+          <div className="h-8 pt-2">
+            <Link
+              to={`../dashboard/profile`}
+              className="dropdown-btn text-center"
+            >
+              Profile
+            </Link>
+          </div>
+
           <button type="button" className="dropdown-btn" onClick={logoutUser}>
             logout
           </button>

@@ -37,32 +37,30 @@ const EditNote = () => {
   const { note } = data;
 
   return (
-    <Wrapper>
-      <Form method="post" className="form">
-        <input
-          type="text"
-          name="title"
-          placeholder="Title"
-          defaultValue={note.title}
-          className="form-center-input"
-        />
-        <input
-          type="textarea"
-          name="details"
-          placeholder="Take a note..."
-          defaultValue={note.details}
-          className="form-center-input form-textarea"
-        />
-        <FormRowSelect
-          name="noteStatus"
-          list={Object.values(NOTE_STATUS)}
-          className="form-center-input"
-        />
-        <button type="submit" className="form-btn">
-          Submit
-        </button>
-      </Form>
-    </Wrapper>
+    <Form method="post" className="form">
+      <input
+        type="text"
+        name="title"
+        placeholder="Title"
+        defaultValue={note.title}
+        className="form-center-input"
+      />
+      <input
+        type="textarea"
+        name="details"
+        placeholder="Take a note..."
+        defaultValue={note.details}
+        className="form-center-input"
+      />
+      <FormRowSelect
+        name="noteStatus"
+        list={Object.values(NOTE_STATUS)}
+        className="form-center-input"
+      />
+      <button type="submit" className="form-btn">
+        Edit
+      </button>
+    </Form>
   );
 };
 export default EditNote;

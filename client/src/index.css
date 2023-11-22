@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ============= GLOBAL CSS =============== */
 
 *,
@@ -7,13 +11,12 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-html {
+*/ html {
   font-size: 100%;
-} /*16px*/
+}
 
 :root {
-  /* colors */
+  /* colors  */
   --primary-50: #e0fcff;
   --primary-100: #bef8fd;
   --primary-200: #87eaf2;
@@ -341,6 +344,6 @@ button:disabled {
 }
 
 .DONE {
-  background: #ffeeee;
-  color: chartreuse;
+  background: #eefff8;
+  color: darkgreen;
 }
